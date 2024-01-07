@@ -9,4 +9,14 @@
     <string name="password">Password</string>
     <string name="register">Register</string>
     <string name="already_have_an_account">Already have an account ?</string>
+    <string name="home_page">Home Page</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="your_highest_score">Your Highest Score</string>
+    <string name="highscore_points">123 Points</string>
+    <string name="chapter_1_button">Chapter 1</string>
+    <string name="chapter_2_button">Chapter 2</string>
+    <string name="chapter_3_button">Chapter 3</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="setting">Setting</string>
 </resources>
