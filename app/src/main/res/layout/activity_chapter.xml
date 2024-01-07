@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/user_img"
+        android:layout_width="77dp"
+        android:layout_height="59dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toEndOf="@+id/cpHeader"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.089"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/cpHeader"
+        android:layout_width="200dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="40dp"
+        android:text="Are you ready?"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.116" />
+
+    <TextView
+        android:id="@+id/cpSubheader"
+        android:layout_width="200dp"
+        android:layout_height="17dp"
+        android:text="Beat your own score!!"
+        app:layout_constraintBottom_toTopOf="@+id/chp_title"
+        app:layout_constraintEnd_toStartOf="@+id/user_img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cpHeader"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/chp_title"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_corner_dark"
+        android:gravity="center"
+        android:text="CHAPTER TITLE"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/chp_bestscore"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_img" />
+
+    <TextView
+        android:id="@+id/chp_bestscore"
+        android:layout_width="129dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/rounded_corner_dark"
+        android:gravity="center"
+        android:text="BEST SCORE"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_img" />
+
+    <TextView
+        android:id="@+id/description_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/description_header"
+        android:textColor="#000000"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chp_title" />
+
+    <TextView
+        android:id="@+id/description_border"
+        android:layout_width="355dp"
+        android:layout_height="360dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/rounded_corner_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chp_title"
+        app:layout_constraintVertical_bias="0.078" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="321dp"
+        android:layout_height="200dp"
+        android:background="@drawable/rounded_corner_white"
+        android:gravity="center"
+        android:text="@string/description"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/description_border"
+        app:layout_constraintEnd_toEndOf="@+id/description_border"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="@+id/description_border"
+        app:layout_constraintTop_toTopOf="@+id/description_border"
+        app:layout_constraintVertical_bias="0.228" />
+
+    <TextView
+        android:id="@+id/passing_score_header"
+        android:layout_width="99dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/passing_score_header"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/description_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/passing_score"
+        android:layout_width="321dp"
+        android:layout_height="35dp"
+        android:background="@drawable/rounded_corner_white"
+        android:gravity="center"
+        android:text="@string/passing_score"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/description_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passing_score_header"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/start_btn"
+        android:layout_width="180dp"
+        android:layout_height="44dp"
+        android:text="@string/start_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description_border"
+        app:layout_constraintVertical_bias="0.172" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
