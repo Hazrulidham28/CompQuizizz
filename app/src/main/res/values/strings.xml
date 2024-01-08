@@ -41,4 +41,11 @@
     <string name="answer_3">Answer 3</string>
     <string name="next_question">Next</string>
     <string name="prev_button">Prev</string>
+
+    <!-- profile page (hadi) -->
+    <string name="full_name">FULL NAME</string>
+    <string name="username">USERNAME</string>
+    <string name="password_textView">PASSWORD:</string>
+    <string name="detailTextView">PERSONAL DETAILS:</string>
+    <string name="achievementTextView">ACHIEVEMENT</string>
 </resources>
