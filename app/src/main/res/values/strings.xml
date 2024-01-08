@@ -26,4 +26,5 @@
     <string name="passing_score_header">Passing Score:</string>
     <string name="passing_score">Passing Score</string>
     <string name="start_btn">START !!</string>
+    <string name="history">History</string>
 </resources>
