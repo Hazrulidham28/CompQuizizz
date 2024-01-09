@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="ComQuizziz"
+        android:text="@string/compquizziz"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
         app:layout_constraintEnd_toEndOf="@+id/toolbar2"
@@ -37,7 +37,10 @@
         app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/user_s_profile_picture"
+        android:src="@drawable/ic_launcher_foreground"/>
+
 
     <TextView
         android:id="@+id/username_historypage"
@@ -69,10 +72,10 @@
             android:id="@+id/highscore_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="0dp"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="5dp"
 
-            android:text="Highscore"
+            android:text="@string/highscore"
             android:textAlignment="center"
             android:textSize="15sp" />
 
@@ -80,7 +83,7 @@
             android:id="@+id/show_highscore"
             android:layout_width="208dp"
             android:layout_height="38dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:background="@color/white"
             android:textAlignment="center" />
@@ -106,7 +109,9 @@
         app:layout_constraintStart_toStartOf="@+id/highscore_icon_background"
         app:layout_constraintTop_toTopOf="@+id/highscore_icon_background"
         app:layout_constraintVertical_bias="0.487"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/highscore_icon"
+        android:src="@drawable/profile_background"/>
 
     <LinearLayout
         android:layout_width="339dp"
@@ -132,30 +137,30 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/Date"
+                    android:id="@+id/date_1_history"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Date" />
+                    android:text="@string/date_1_history" />
 
                 <TextView
-                    android:id="@+id/Chapter"
+                    android:id="@+id/chapter_1_history"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
 
-                    android:text="Chapter" />
+                    android:text="@string/chapter_1_history" />
             </LinearLayout>
 
             <!-- History 1 score -->
             <TextView
                 android:id="@+id/history_item_1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Score1" />
+                android:text="@string/score_1" />
         </LinearLayout>
 
         <!-- History item 2 -->
@@ -173,12 +178,12 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@id/Date"
+                    android:id="@+id/date_2_history"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
-                    android:text="@string/date" />
+                    android:text="@string/date_2_history" />
 
                 <TextView
                     android:id="@+id/Chapter"
@@ -189,11 +194,11 @@
             <!-- History item 2 score -->
             <TextView
                 android:id="@+id/history_item_2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Score 2" />
+                android:text="@string/score_2" />
         </LinearLayout>
         <!-- History item 3 -->
         <LinearLayout
@@ -208,27 +213,27 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/date_3_history"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
-                    android:text="Date" />
+                    android:text="@string/date_3_history" />
 
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/chapter_3_history"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Chapter" />
+                    android:text="@string/chapter_3_history" />
             </LinearLayout>
             <!-- History item 3 score -->
             <TextView
                 android:id="@+id/history_item_3"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Score 3" />
+                android:text="@string/score_3" />
         </LinearLayout>
 
 
