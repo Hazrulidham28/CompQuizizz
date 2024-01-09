@@ -26,13 +26,4 @@
     <string name="passing_score_header">Passing Score:</string>
     <string name="passing_score">Passing Score</string>
     <string name="start_btn">START !!</string>
-    <string name="compquizziz">CompQuizziz</string>
-    <string name="username">Username</string>
-    <string name="log_in">Log In</string>
-    <string name="Register">Register</string>
-    <string name="not_have_an_account">Not have an account?</string>
-    <string name="learn_about_computer_science_in_a_fun_way">Learn about computer science in a fun way</string>
-    <string name="ready_to_explore_something_new">Ready to explore something new?</string>
-    <string name="date">Date</string>
-    <string name="chapter">Chapter</string>
 </resources>
