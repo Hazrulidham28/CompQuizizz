@@ -77,5 +77,6 @@
     <string name="password_textView">PASSWORD:</string>
     <string name="detailTextView">PERSONAL DETAILS:</string>
     <string name="achievementTextView">ACHIEVEMENT</string>
+    <string name="history">History</string>
 
 </resources>
