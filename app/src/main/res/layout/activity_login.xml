@@ -85,7 +85,7 @@
             android:layout_margin="10dp"
             android:ems="10"
             android:inputType="text"
-
+            android:background="@drawable/round_back_dark_blue"
 
 
             />
@@ -107,7 +107,7 @@
             android:layout_margin="10dp"
             android:ems="10"
             android:inputType="textPassword"
-
+            android:background="@drawable/round_back_dark_blue"
 
 
             />
@@ -140,12 +140,12 @@
 
     <Button
         android:id="@+id/login_page_button"
-        android:layout_width="107dp"
+        android:layout_width="200dp"
         android:layout_height="38dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="100dp"
         android:text="@string/log_in"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
