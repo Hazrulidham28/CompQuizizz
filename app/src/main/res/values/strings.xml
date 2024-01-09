@@ -26,8 +26,10 @@
     <string name="passing_score_header">Passing Score:</string>
     <string name="passing_score">Passing Score</string>
     <string name="start_btn">START !!</string>
+
+    <!-- History page -->
     <string name="compquizziz">CompQuizziz</string>
-    <string name="username">Username</string>
+    <string name="username_history">Username</string>
     <string name="log_in">Log In</string>
     <string name="Register">Register</string>
     <string name="not_have_an_account">Not have an account?</string>
@@ -54,4 +56,26 @@
     <string name="date_1_history">Date</string>
     <string name="user_s_profile_picture">User\'s profile picture</string>
     <string name="highscore_icon">Highscore Icon</string>
+
+    <!-- quiz page (hadi) -->
+    <string name="quiz_title">Quiz Title</string>
+    <string name="title_quiz">Title Quiz</string>
+    <string name="progress_num">Question:</string>
+    <string name="current_progress">1</string>
+    <string name="scoreTextView">Your Score:</string>
+    <string name="current_score">100</string>
+    <string name="question">Question is here</string>
+    <string name="answer_1">Answer 1</string>
+    <string name="answer_2">Answer 2</string>
+    <string name="answer_3">Answer 3</string>
+    <string name="next_question">Next</string>
+    <string name="prev_button">Prev</string>
+
+    <!-- profile page (hadi) -->
+    <string name="full_name">FULL NAME</string>
+    <string name="username_profile">USERNAME</string>
+    <string name="password_textView">PASSWORD:</string>
+    <string name="detailTextView">PERSONAL DETAILS:</string>
+    <string name="achievementTextView">ACHIEVEMENT</string>
+
 </resources>
