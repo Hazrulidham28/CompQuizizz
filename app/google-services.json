@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "374692574033",
+    "project_id": "qompquizizz",
+    "storage_bucket": "qompquizizz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374692574033:android:35862f65b5ddf4a8c0d970",
+        "android_client_info": {
+          "package_name": "com.example.compquizizz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4430Gv4EUBWHDtsu0nF9lLrYwZZa6_rk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
