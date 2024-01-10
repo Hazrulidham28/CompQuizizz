@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
         tools:srcCompat="@tools:sample/avatars"
         android:contentDescription="@string/user_s_profile_picture"
-        android:src="@drawable/ic_launcher_foreground"/>
+        android:src="@mipmap/ic_launcher_round"/>
 
 
     <TextView
@@ -111,133 +111,26 @@
         app:layout_constraintVertical_bias="0.487"
         tools:srcCompat="@tools:sample/avatars"
         android:contentDescription="@string/highscore_icon"
-        android:src="@drawable/profile_background"/>
+        android:src="@mipmap/ic_launcher_round"/>
 
-    <LinearLayout
-        android:layout_width="339dp"
-        android:layout_height="280dp"
-        android:layout_marginTop="16dp"
 
-        android:orientation="vertical"
+
+
+
+    <!-- convert into recycler view -->
+    <!--RecyclerView-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_list"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-        <!-- History item 1 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:layout_margin="25dp"
-            android:orientation="horizontal">
-
-            <!-- Date and Chapter textview container -->
-            <LinearLayout
-                android:layout_width="89dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/date_1_history"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="@string/date_1_history" />
-
-                <TextView
-                    android:id="@+id/chapter_1_history"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-
-                    android:text="@string/chapter_1_history" />
-            </LinearLayout>
-
-            <!-- History 1 score -->
-            <TextView
-                android:id="@+id/history_item_1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/score_1" />
-        </LinearLayout>
-
-        <!-- History item 2 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:orientation="horizontal">
-
-            <!-- Date and Chapter container -->
-            <LinearLayout
-                android:layout_width="88dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/date_2_history"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="@string/date_2_history" />
-
-                <TextView
-                    android:id="@+id/Chapter"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/chapter" />
-            </LinearLayout>
-            <!-- History item 2 score -->
-            <TextView
-                android:id="@+id/history_item_2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/score_2" />
-        </LinearLayout>
-        <!-- History item 3 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:layout_margin="25dp"
-            android:orientation="horizontal">
-            <!-- Date and time container -->
-            <LinearLayout
-                android:layout_width="88dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/date_3_history"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="@string/date_3_history" />
-
-                <TextView
-                    android:id="@+id/chapter_3_history"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/chapter_3_history" />
-            </LinearLayout>
-            <!-- History item 3 score -->
-            <TextView
-                android:id="@+id/history_item_3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/score_3" />
-        </LinearLayout>
-
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.455"
+        android:background="@drawable/rounded_background_lighter_dark"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CompQuizizz">
         <activity
+            android:name=".HistoryActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".StartupActivity"
+            android:exported="true"/>
+        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
