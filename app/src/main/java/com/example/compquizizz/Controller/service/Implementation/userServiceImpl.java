@@ -34,7 +34,12 @@ public class userServiceImpl implements userService {
         reference.child(UserName).setValue(User).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                response="SUCCESS";
+               if (task.isSuccessful()){
+                   response="SUCCESS";
+               }
+               else{
+                   response="FAILED";
+               }
             }
         });
         return response;
@@ -60,6 +65,9 @@ public class userServiceImpl implements userService {
             public void onComplete(@NonNull Task<AuthResult> task) {
               if (task.isSuccessful()) {
                   response = "SUCCESS";
+              }
+              else {
+                  response="FAILED";
               }
             }
         });

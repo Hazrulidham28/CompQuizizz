@@ -79,4 +79,25 @@
     <string name="achievementTextView">ACHIEVEMENT</string>
     <string name="history">History</string>
 
+    <!-- spinner array country and age -->
+    <string-array name="labels_country">
+        <item>Country</item>
+        <item>Malaysia</item>
+        <item>Indonesia</item>
+        <item>Singapore</item>
+        <item>Thailand</item>
+    </string-array>
+
+    <string-array name="labels_age">
+        <item>Age</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+    </string-array>
+
 </resources>
