@@ -2,6 +2,7 @@ package com.example.compquizizz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -50,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
                 fName = findViewById(R.id.editTextFirstName);
                 lName = findViewById(R.id.editTextLastName);
                 Uname = findViewById(R.id.editTextuName);
-                eMail = findViewById(R.id.editTextLastName);
+                eMail = findViewById(R.id.editTextEmail);
                 Pass = findViewById(R.id.editTextPassword);
                 String fNames,eMails,Passs,countrys,lNames,Unames;
                 int ages;
@@ -64,13 +65,15 @@ public class RegisterActivity extends AppCompatActivity {
                 ageValues=20;
                 country="Malaysia";
 
-                //Toast.makeText(RegisterActivity.this," age", Toast.LENGTH_SHORT).show();
+                //need to add text field checker to ensure no null value inserted
                 user thisUser = new user(fNames,eMails,Passs,country,lNames,ageValues,Unames);
 
                 String message =  userServices.registerUser(thisUser);
 
                if (message.equalsIgnoreCase(responseCode)){
                     Toast.makeText(RegisterActivity.this, "Register succeeded", Toast.LENGTH_SHORT).show();
+                   Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                   startActivity(intent);
                 }
                 else {
                     Toast.makeText(RegisterActivity.this, "Register failed", Toast.LENGTH_SHORT).show();

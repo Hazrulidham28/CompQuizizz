@@ -78,6 +78,7 @@
     <string name="detailTextView">PERSONAL DETAILS:</string>
     <string name="achievementTextView">ACHIEVEMENT</string>
     <string name="history">History</string>
+    <string name="logouttemp">Logout</string>
 
     <!-- spinner array country and age -->
     <string-array name="labels_country">
