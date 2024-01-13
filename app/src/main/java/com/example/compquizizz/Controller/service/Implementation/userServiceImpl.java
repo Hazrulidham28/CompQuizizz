@@ -8,6 +8,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,24 +37,26 @@ public class userServiceImpl implements userService {
         //set which class will be added as table
         reference = db.getReference("user");
 
-        //add user data to realtime database
-        reference.child(UserName).setValue(User).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-               if (task.isSuccessful()){
-                   chck1="SUCCESS";
-               }
-               else{
-                   chck1="FAILED";
-               }
-            }
-        });
-
-
         auth.createUserWithEmailAndPassword(Email,Password).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+                    FirebaseUser user = auth.getCurrentUser();
+                    String userID="null";
+                    userID= user.getUid();
+                    User.setuID(userID);
+                    //add user data to realtime database
+                    reference.child(userID).setValue(User).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                chck1="SUCCESS";
+                            }
+                            else{
+                                chck1="FAILED";
+                            }
+                        }
+                    });
                     chck2="SUCCESS";
                 }
                 else{

@@ -7,5 +7,5 @@ import java.util.List;
 public interface historyService {
     public String addHistory(history History);
 
-    public List<history> getHistory();
+    public List<history> getHistoryByUname(String uName);
 }

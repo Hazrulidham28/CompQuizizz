@@ -18,7 +18,7 @@ import com.example.compquizizz.Model.user;
 import java.util.Arrays;
 
 public class RegisterActivity extends AppCompatActivity {
-    String country,age;
+    String country,age,uID;
     int ageValues;
     String responseCode="FAILED";
 
@@ -66,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
                 country="Malaysia";
 
                 //need to add text field checker to ensure no null value inserted
-                user thisUser = new user(fNames,eMails,Passs,country,lNames,ageValues,Unames);
+                user thisUser = new user(fNames,eMails,Passs,country,lNames,ageValues,Unames,uID);
 
                 String message =  userServices.registerUser(thisUser);
 

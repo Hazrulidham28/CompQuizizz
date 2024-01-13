@@ -1,10 +1,19 @@
 package com.example.compquizizz.Model;
 
 public class user {
-    String FirstName, Email,Password,Country,LastName,UserName;
+    String FirstName, Email,Password,Country,LastName,UserName,uID;
     int age;
+
+    public String getuID() {
+        return uID;
+    }
+
+    public void setuID(String uID) {
+        this.uID = uID;
+    }
+
     //testcommit
-    public user(String firstName, String email, String password, String country, String lastName, int age, String userName) {
+    public user(String firstName, String email, String password, String country, String lastName, int age, String userName,String uID) {
         this.FirstName = firstName;
         this.Email = email;
         Password = password;
@@ -12,6 +21,7 @@ public class user {
         this.LastName = lastName;
         this.age = age;
         this.UserName=userName;
+        this.uID=uID;
     }
 
     public String getUserName() {
