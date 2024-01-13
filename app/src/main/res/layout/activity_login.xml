@@ -75,11 +75,11 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
 
-            android:text="@string/username_login"
+            android:text="@string/emailLogin"
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/username_input"
+            android:id="@+id/email_input"
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:layout_margin="10dp"

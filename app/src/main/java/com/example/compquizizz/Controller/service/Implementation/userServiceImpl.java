@@ -86,11 +86,12 @@ public class userServiceImpl implements userService {
     }
 
     @Override
-    public String loginUser(String userName, String password) {
+    public String loginUser(String email, String password) {
         mAuth = FirebaseAuth.getInstance();
 
+
         //probability error becasue not put the this argument
-        mAuth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
               if (task.isSuccessful()) {
