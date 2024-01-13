@@ -118,5 +118,10 @@ public class userServiceImpl implements userService {
     public user getuserByName(String uName) {
         return null;
     }
+
+    @Override
+    public user getuserUID(String uID) {
+        return null;
+    }
     //add implementation
 }

@@ -62,6 +62,9 @@ public class RegisterActivity extends AppCompatActivity {
                 Passs=Pass.getText().toString();
                 lNames=lName.getText().toString();
                 Unames=Uname.getText().toString();
+
+                // need to set up the spinner
+                //this is just dummy data! need to be changed
                 ageValues=20;
                 country="Malaysia";
 

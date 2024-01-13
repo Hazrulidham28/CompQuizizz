@@ -13,7 +13,9 @@ import com.example.compquizizz.Controller.service.Implementation.userServiceImpl
 import com.example.compquizizz.Controller.service.historyService;
 import com.example.compquizizz.Controller.service.userService;
 import com.example.compquizizz.Model.history;
+import com.example.compquizizz.Model.user;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,6 +29,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     //initialize implementaiton method
     private historyService hService = new historyServiceImpl();
+    private userService userServices = new userServiceImpl();
 
     //need to call current logged in username
     private FirebaseAuth mAuth;
@@ -41,7 +44,21 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
         mAuth = FirebaseAuth.getInstance();
 
+        //get the current user by uid of logged in user
+        FirebaseUser user = mAuth.getCurrentUser();
+        String userID;
+        userID= user.getUid();
 
+        if (userID!=null){
+
+            //find the user in realtime database that has same userID
+            user currUser = userServices.getuserUID(userID);
+
+            //get user name
+            currentusername = currUser.getUserName();
+        }else {
+            Log.d("noUID", "UID not exits!" );
+        }
 
         List<history> histories = hService.getHistoryByUname(currentusername);
 
@@ -56,6 +73,11 @@ public class HistoryActivity extends AppCompatActivity {
             //create dummy data/ default value to display in recycler view
             //if not set any value, application would crash
         }
+        runRecyclerView();
+
+    }
+
+    public void runRecyclerView(){
         //Set date,chapter,score to the history list
         recyclerView = (RecyclerView)  findViewById(R.id.history_list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -63,5 +85,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         HistoryListAdapter adapter = new HistoryListAdapter(HistoryActivity.this,date,chapter,score);
         recyclerView.setAdapter(adapter);
+
+
     }
 }

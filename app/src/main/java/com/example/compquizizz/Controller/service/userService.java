@@ -12,4 +12,5 @@ public interface userService {
     public String loginUser(String email,String password);
     public List<user> getallUser();
     public user getuserByName(String uName);
+    public user getuserUID(String uName);
 }
