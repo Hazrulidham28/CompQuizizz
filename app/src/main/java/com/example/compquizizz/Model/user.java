@@ -32,6 +32,7 @@ public class user {
         this.uID=uID;
         this.totScore=totScore;
     }
+    public user(){}
 
     public String getUserName() {
         return UserName;

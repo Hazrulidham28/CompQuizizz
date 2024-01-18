@@ -9,62 +9,62 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
 
+import com.example.compquizizz.Model.history;
 import com.example.compquizizz.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.ViewHolder> {
-    ArrayList<String> dateText, chapterText, scoreText;
-    Context context;
+     ArrayList<history> historyItems;
+     Context context;
 
-    // Initialization Constructor
-    public HistoryListAdapter(Context context, ArrayList<String> dateText, ArrayList<String> chapterText, ArrayList<String> scoreText) {
+    // Constructor
+    public HistoryListAdapter(Context context, ArrayList<history> historyItems) {
         this.context = context;
-        this.dateText = dateText;
-        this.chapterText = chapterText;
-        this.scoreText = scoreText;
+        this.historyItems = historyItems;
     }
 
-    //Inflate the layout by instantiating history_list_item.xml
+    // onCreateViewHolder remains the same
+
     @NonNull
     @Override
-    public HistoryListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.history_list_item, parent, false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        //Pass view to ViewHolder
-        HistoryListAdapter.ViewHolder viewHolder = new HistoryListAdapter.ViewHolder(view);
-        return viewHolder;
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.history_list_item,parent,false);
 
+        HistoryListAdapter.ViewHolder viewHolders = new HistoryListAdapter.ViewHolder(v);
+        return  viewHolders;
     }
 
-    //Binding the data into the specified position
     @Override
     public void onBindViewHolder(@NonNull HistoryListAdapter.ViewHolder holder, int position) {
-        // TypeCast Object to int type
+        history item = historyItems.get(position);
+        holder.date.setText((String)item.getDate());
+        holder.chapter.setText((String)item.getChapter());
+        holder.score.setText(String.valueOf(item.getScore()));
 
-        holder.date.setText((String) dateText.get(position));
-        holder.chapter.setText((String) chapterText.get(position));
-        holder.score.setText((String) scoreText.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return scoreText.size();
+        return historyItems.size();
     }
 
-    //Instantiate view in specified view
     public class ViewHolder extends RecyclerView.ViewHolder {
-
         TextView date, chapter, score;
+        // Add other TextViews for new fields if needed
 
-        public ViewHolder(View view){
+        public ViewHolder(View view) {
             super(view);
             date = (TextView) view.findViewById(R.id.date_1_history);
-            chapter = (TextView) view.findViewById(R.id.chapter_1_history);
-            score = (TextView) view.findViewById(R.id.score_1);
-        }
+            chapter = (TextView)view.findViewById(R.id.chapter_1_history);
+            score = (TextView)view.findViewById(R.id.score_1);
 
+        }
     }
 }
+
 
