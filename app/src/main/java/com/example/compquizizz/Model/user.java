@@ -2,7 +2,7 @@ package com.example.compquizizz.Model;
 
 public class user {
     String FirstName, Email,Password,Country,LastName,UserName,uID;
-    int age;
+    int age,totScore;
 
     public String getuID() {
         return uID;
@@ -12,8 +12,16 @@ public class user {
         this.uID = uID;
     }
 
+    public int getTotScore() {
+        return totScore;
+    }
+
+    public void setTotScore(int totScore) {
+        this.totScore = totScore;
+    }
+
     //testcommit
-    public user(String firstName, String email, String password, String country, String lastName, int age, String userName,String uID) {
+    public user(String firstName, String email, String password, String country, String lastName, int age, String userName,String uID,int totScore) {
         this.FirstName = firstName;
         this.Email = email;
         Password = password;
@@ -22,6 +30,7 @@ public class user {
         this.age = age;
         this.UserName=userName;
         this.uID=uID;
+        this.totScore=totScore;
     }
 
     public String getUserName() {

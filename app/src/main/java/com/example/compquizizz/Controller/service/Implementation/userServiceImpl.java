@@ -1,14 +1,21 @@
 package com.example.compquizizz.Controller.service.Implementation;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import com.example.compquizizz.Controller.service.historyService;
+import com.example.compquizizz.Controller.service.score.scoreImplementation.userScoreImpl;
+import com.example.compquizizz.Controller.service.score.userScore;
 import com.example.compquizizz.Controller.service.userService;
 import com.example.compquizizz.Model.user;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -16,6 +23,7 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 public class userServiceImpl implements userService {
+    private userScore sServices = new userScoreImpl();
     String FirstName, Email,Password,Country,LastName,UserName;
     int age;
 
@@ -122,6 +130,31 @@ public class userServiceImpl implements userService {
     @Override
     public user getuserUID(String uID) {
         return null;
+    }
+
+    @Override
+    public String updateScorebyUname(String uName) {
+            //this method should be implement everytime the quiz end
+            //and after saving the history into the database in order to be f4nctional
+            //implement userScoreImpl to get the score of the user
+            int score = sServices.getScoreByUname(uName);
+            //code for updating to database
+             reference = FirebaseDatabase.getInstance().getReference("user").child(uName).child("totScore");
+             reference.setValue(score).addOnSuccessListener(new OnSuccessListener<Void>() {
+
+                 @Override
+                 public void onSuccess(Void unused) {
+                     response="SUCCESS";
+                 }
+             }).addOnFailureListener(new OnFailureListener() {
+                 @Override
+                 public void onFailure(@NonNull Exception e) {
+                    response="FAILED";
+                 }
+             });
+
+             //set the message to success if update success
+        return response;
     }
     //add implementation
 }

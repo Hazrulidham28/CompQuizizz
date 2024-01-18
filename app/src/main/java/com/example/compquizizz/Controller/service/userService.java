@@ -13,4 +13,5 @@ public interface userService {
     public List<user> getallUser();
     public user getuserByName(String uName);
     public user getuserUID(String uName);
+    public String updateScorebyUname(String uName);
 }

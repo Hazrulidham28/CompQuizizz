@@ -19,7 +19,7 @@ import java.util.Arrays;
 
 public class RegisterActivity extends AppCompatActivity {
     String country,age,uID;
-    int ageValues;
+    int ageValues,totscore=0;
     String responseCode="FAILED";
 
     private EditText fName,lName,Uname,eMail,Pass;
@@ -69,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                 country="Malaysia";
 
                 //need to add text field checker to ensure no null value inserted
-                user thisUser = new user(fNames,eMails,Passs,country,lNames,ageValues,Unames,uID);
+                user thisUser = new user(fNames,eMails,Passs,country,lNames,ageValues,Unames,uID,totscore);
 
                 String message =  userServices.registerUser(thisUser);
 
