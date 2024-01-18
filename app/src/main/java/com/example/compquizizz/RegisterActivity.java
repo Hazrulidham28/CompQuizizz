@@ -1,5 +1,6 @@
 package com.example.compquizizz;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,13 @@ import android.widget.Toast;
 import com.example.compquizizz.Controller.service.Implementation.userServiceImpl;
 import com.example.compquizizz.Controller.service.userService;
 import com.example.compquizizz.Model.user;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 
@@ -25,6 +33,11 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText fName,lName,Uname,eMail,Pass;
     private Button regButton;
 
+    //database
+    FirebaseDatabase db;
+    DatabaseReference reference;
+    FirebaseAuth mAuth;
+    FirebaseAuth auth;
     private userService userServices = new userServiceImpl();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,16 +84,44 @@ public class RegisterActivity extends AppCompatActivity {
                 //need to add text field checker to ensure no null value inserted
                 user thisUser = new user(fNames,eMails,Passs,country,lNames,ageValues,Unames,uID,totscore);
 
-                String message =  userServices.registerUser(thisUser);
 
-               if (message.equalsIgnoreCase(responseCode)){
-                    Toast.makeText(RegisterActivity.this, "Register succeeded", Toast.LENGTH_SHORT).show();
-                   Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                   startActivity(intent);
-                }
-                else {
-                    Toast.makeText(RegisterActivity.this, "Register failed", Toast.LENGTH_SHORT).show();
-                }
+                //initialize firebase database and refer to specific part for reference
+                db = FirebaseDatabase.getInstance();
+                //create for authentication
+                auth = FirebaseAuth.getInstance();
+                //set which class will be added as table
+                reference = db.getReference("user");
+
+                auth.createUserWithEmailAndPassword(eMails,Passs).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            FirebaseUser user = auth.getCurrentUser();
+                            String userID="null";
+                            userID= user.getUid();
+                            thisUser.setuID(userID);
+                            //add user data to realtime database
+                            reference.child(userID).setValue(thisUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                                        startActivity(intent);
+                                        Toast.makeText(RegisterActivity.this, "Register succeeded", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else{
+                                        Toast.makeText(RegisterActivity.this, "Register succeeded", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+
+                        }
+
+                    }
+                });
+
+
+
             }
         });
 

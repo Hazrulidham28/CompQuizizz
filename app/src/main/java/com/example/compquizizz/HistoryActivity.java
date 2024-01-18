@@ -51,11 +51,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         if (userID!=null){
 
-            //find the user in realtime database that has same userID
-            user currUser = userServices.getuserUID(userID);
 
-            //get user name
-            currentusername = currUser.getUserName();
         }else {
             Log.d("noUID", "UID not exits!" );
         }
