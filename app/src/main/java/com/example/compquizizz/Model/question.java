@@ -1,40 +1,41 @@
 package com.example.compquizizz.Model;
 
 public class question {
-    String QuestionID,ChaptID,QuestionText,choice1,choice2,choice3,correctAnsw;
-
-    public question(String questionID, String chaptID, String questionText, String choice1, String choice2, String choice3, String correctAnsw) {
-        QuestionID = questionID;
-        ChaptID = chaptID;
-        QuestionText = questionText;
+    String  chapter_id, question,choice1,choice2,choice3, correct_answ;
+    int question_id;
+    public question(int questionid, String chapterid, String question, String choice1, String choice2, String choice3, String correct_answ) {
+        question_id = questionid;
+        chapter_id = chapterid;
+        this.question = question;
         this.choice1 = choice1;
         this.choice2 = choice2;
         this.choice3 = choice3;
-        this.correctAnsw = correctAnsw;
+        this.correct_answ = correct_answ;
+    }
+    public question(){}
+
+    public int getQuestion_id() {
+        return question_id;
     }
 
-    public String getQuestionID() {
-        return QuestionID;
+    public void setQuestion_id(int question_id) {
+        this.question_id = question_id;
     }
 
-    public void setQuestionID(String questionID) {
-        QuestionID = questionID;
+    public String getChapter_id() {
+        return chapter_id;
     }
 
-    public String getChaptID() {
-        return ChaptID;
+    public void setChapter_id(String chapter_id) {
+        this.chapter_id = chapter_id;
     }
 
-    public void setChaptID(String chaptID) {
-        ChaptID = chaptID;
+    public String getQuestion() {
+        return question;
     }
 
-    public String getQuestionText() {
-        return QuestionText;
-    }
-
-    public void setQuestionText(String questionText) {
-        QuestionText = questionText;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
     public String getChoice1() {
@@ -61,11 +62,11 @@ public class question {
         this.choice3 = choice3;
     }
 
-    public String getCorrectAnsw() {
-        return correctAnsw;
+    public String getCorrect_answ() {
+        return correct_answ;
     }
 
-    public void setCorrectAnsw(String correctAnsw) {
-        this.correctAnsw = correctAnsw;
+    public void setCorrect_answ(String correct_answ) {
+        this.correct_answ = correct_answ;
     }
 }

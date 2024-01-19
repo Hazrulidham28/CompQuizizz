@@ -117,7 +117,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, QuizActivity.class);
-                intent.putExtra("ChaptNum",1);
+                String chapter = "Chap 1";
+                intent.putExtra("ChaptNum",chapter);
                 startActivity(intent);
             }
         });
@@ -125,7 +126,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, QuizActivity.class);
-                intent.putExtra("ChaptNum",2);
+                String chapter = "Chap 2";
+                intent.putExtra("ChaptNum",chapter);
                 startActivity(intent);
             }
         });
@@ -133,7 +135,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, QuizActivity.class);
-                intent.putExtra("ChaptNum",3);
+                String chapter = "Chap 3";
+                intent.putExtra("ChaptNum",chapter);
                 startActivity(intent);
             }
         });
