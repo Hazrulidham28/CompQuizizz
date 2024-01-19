@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity {
     ArrayList <question> questionList;
+    int [] score =new int[5];
     private int currentquestionindex=0;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();

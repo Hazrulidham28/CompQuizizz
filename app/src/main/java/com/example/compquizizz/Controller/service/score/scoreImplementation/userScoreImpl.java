@@ -1,10 +1,8 @@
 package com.example.compquizizz.Controller.service.score.scoreImplementation;
 
 import com.example.compquizizz.Controller.service.Implementation.historyServiceImpl;
-import com.example.compquizizz.Controller.service.Implementation.userServiceImpl;
 import com.example.compquizizz.Controller.service.historyService;
 import com.example.compquizizz.Controller.service.score.userScore;
-import com.example.compquizizz.Controller.service.userService;
 import com.example.compquizizz.Model.history;
 
 import java.util.List;
@@ -13,8 +11,8 @@ public class userScoreImpl implements userScore {
     List<history> historieslist=null;
     private historyService hServices = new historyServiceImpl();
     @Override
-    public int getScoreByUname(String uName) {
-        int totalScore=0;
+    public String getScoreByUname(String uName) {
+        String totalScore= String.valueOf(0);
 
         //gethistory by uname in list
         //calculate the list

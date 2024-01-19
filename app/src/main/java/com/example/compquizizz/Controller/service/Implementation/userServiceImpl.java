@@ -140,7 +140,7 @@ public class userServiceImpl implements userService {
             //this method should be implement everytime the quiz end
             //and after saving the history into the database in order to be f4nctional
             //implement userScoreImpl to get the score of the user
-            int score = sServices.getScoreByUname(uName);
+            String score = sServices.getScoreByUname(uName);
             //code for updating to database
              reference = FirebaseDatabase.getInstance().getReference("user").child(uName).child("totScore");
              reference.setValue(score).addOnSuccessListener(new OnSuccessListener<Void>() {

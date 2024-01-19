@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -116,7 +117,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     }
     private void fetchHistory(String userName){
-    DatabaseReference historyRef = database.child("history").child(userName);
+    DatabaseReference historyRef = database.child("history");
 
         historyRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -125,9 +126,12 @@ public class HistoryActivity extends AppCompatActivity {
 
                     for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                         history histories =dataSnapshot.getValue(history.class);
+                        if (histories.getUserName().equalsIgnoreCase(userName)){
                         history.add(histories);
+                        }
+                        runRecyclerView(history);
                     }
-                    runRecyclerView(history);
+
                 }
             }
 

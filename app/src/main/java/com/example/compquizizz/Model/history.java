@@ -2,7 +2,7 @@ package com.example.compquizizz.Model;
 
 public class history {
     String HistoryID,UserName,ChaptID,QuestionDone,Date,Chapter;
-    int score;
+    int Score;
 
     public history(String historyID, String userName, String chaptID, String questionDone, String date, String chapter, int score) {
         HistoryID = historyID;
@@ -11,8 +11,10 @@ public class history {
         QuestionDone = questionDone;
         Date = date;
         Chapter = chapter;
-        this.score = score;
+        this.Score = score;
     }
+
+    public history(){}
 
     public String getHistoryID() {
         return HistoryID;
@@ -63,10 +65,10 @@ public class history {
     }
 
     public int getScore() {
-        return score;
+        return Score;
     }
 
     public void setScore(int score) {
-        this.score = score;
+        this.Score = score;
     }
 }
