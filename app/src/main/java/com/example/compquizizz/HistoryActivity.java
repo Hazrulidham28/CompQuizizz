@@ -1,8 +1,10 @@
 package com.example.compquizizz;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -18,6 +20,8 @@ import com.example.compquizizz.Controller.service.historyService;
 import com.example.compquizizz.Controller.service.userService;
 import com.example.compquizizz.Model.history;
 import com.example.compquizizz.Model.user;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -83,6 +87,32 @@ public class HistoryActivity extends AppCompatActivity {
 
         }
 
+        BottomNavigationView btnviw = findViewById(R.id.bottomNavigationView);
+
+        btnviw.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int menuItem = item.getItemId();
+                if (menuItem ==  R.id.History) {
+                    Intent intent = new Intent(HistoryActivity.this,HistoryActivity.class);
+                    startActivity(intent);
+                    intent.putExtra("uID",uID);
+                    return true;
+                }
+                else if (menuItem ==  R.id.profile) {
+                    Intent intent = new Intent(HistoryActivity.this,ProfileActivity.class);
+                    startActivity(intent);
+                    intent.putExtra("uID",uID);
+                    return true;
+                }else if(menuItem ==  R.id.home){
+                    Intent intent = new Intent(HistoryActivity.this,HomeActivity.class);
+                    startActivity(intent);
+                    intent.putExtra("uID",uID);
+                    return true;
+                }
+                return false;
+            }
+        });
 
     }
     private void fetchHistory(String userName){
