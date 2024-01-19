@@ -42,11 +42,9 @@ public class HistoryActivity extends AppCompatActivity {
     //need to call current logged in username
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-
+    String userName;
     ArrayList <history> history;
 
-
-    //get list of histories based on the current logged in user
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,31 +58,8 @@ public class HistoryActivity extends AppCompatActivity {
         //get user by id
         if (currentUser!=null){
             String userId = currentUser.getUid();
-            DatabaseReference userRef = database.child("user").child(userId);
-
-               userRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                            user users = snapshot.getValue(user.class);
-                            if (users!=null){
-                                String userName = users.getUserName();
-                                String score = String.valueOf(users.getTotScore());
-                                TextView username = findViewById(R.id.username_historypage);
-                                TextView scores = findViewById(R.id.show_highscore);
-                                username.setText(userName);
-                                scores.setText(score);
-                                fetchHistory(userName);
-                            }
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+            //get uName
+            getUname(userId);
 
         }
 
@@ -151,6 +126,37 @@ public class HistoryActivity extends AppCompatActivity {
         HistoryListAdapter adapter = new HistoryListAdapter(HistoryActivity.this,fetchedHistories);
         recyclerView.setAdapter(adapter);
 
+
+    }
+    public void getUname(String userId){
+
+        DatabaseReference userRef = database.child("user").child(userId);
+
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    user users = snapshot.getValue(user.class);
+                    if (users!=null){
+                        userName = users.getUserName();
+                        String score = String.valueOf(users.getTotScore());
+                        TextView username = findViewById(R.id.username_historypage);
+                        TextView scores = findViewById(R.id.show_highscore);
+                        username.setText(userName);
+                        scores.setText(score);
+                        //fetch
+                    }
+
+                }
+                fetchHistory(userName);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 

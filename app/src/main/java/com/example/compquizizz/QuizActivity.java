@@ -91,21 +91,58 @@ public class QuizActivity extends AppCompatActivity {
             ans1.setText(currentQuest.getChoice1());
             ans2.setText(currentQuest.getChoice2());
             ans3.setText(currentQuest.getChoice3());
-
+            ans1.setChecked(false);
+            ans2.setChecked(false);
+            ans3.setChecked(false);
             nextbut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    nextQuestion();
+                    if (ans1.isChecked()){
+                        //check if selected equal to answer
+                        if (ans1.getText().equals(currentQuest.getCorrect_answ())){
+                            //calculate put score
+                            score[currentquestionindex]=20;
+                        }else{
+
+                        }
+
+                        nextQuestion();
+                    } else if (ans2.isChecked()) {
+                        score[currentquestionindex]=20;
+                        nextQuestion();
+                    } else if (ans3.isChecked()) {
+                        score[currentquestionindex]=20;
+                        nextQuestion();
+
+                    }else{
+                        Toast.makeText(QuizActivity.this, "Select you answer", Toast.LENGTH_SHORT).show();
+                    }
+
+
                 }
             });
         }
         else {
             //handle when all question is displayed
-            Toast.makeText(QuizActivity.this, "Quiz Completed", Toast.LENGTH_SHORT).show();
+            //calculate total score
+            int totalallq=0;
+            for (int i=0;i<score.length;i++){
+                totalallq=totalallq+score[i];
+            }
+
+            Toast.makeText(QuizActivity.this,String.valueOf(totalallq), Toast.LENGTH_SHORT).show();
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+
+            //do something to store history
+            //storeHistory(totalallq,currentquestionindex,);
         }
     }
     private void nextQuestion(){
         currentquestionindex++;
         displayQuestion();
+    }
+
+    public void storeHistory(){
+
     }
 }
