@@ -10,12 +10,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.compquizizz.Model.user;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,7 +31,8 @@ public class HomeActivity extends AppCompatActivity {
     Button c1;
     Button c2;
     Button c3;
-//temporary suppress
+
+    String userName;
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
@@ -59,13 +64,13 @@ public class HomeActivity extends AppCompatActivity {
                             user users = snapshot.getValue(user.class);
                             if (users!= null){
                                 String highestScore= String.valueOf(users.getTotScore());
-
+                                 userName = users.getUserName();
                                 TextView scorehigh=findViewById(R.id.textView13);
                                 scorehigh.setText(highestScore);
-
                                 //create method to calculate leader board
                             }
-                        }
+
+                        }setDisplayname(userName);
                     }
 
                     @Override
@@ -143,5 +148,27 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+    public void setDisplayname(String username){
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                    .setDisplayName(username)
+                    .build();
+
+            currentUser.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()){
+                        Toast.makeText(HomeActivity.this, "Welcome !!! " + username, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+
     }
 }

@@ -36,7 +36,6 @@ public class RegisterActivity extends AppCompatActivity {
     //database
     FirebaseDatabase db;
     DatabaseReference reference;
-    FirebaseAuth mAuth;
     FirebaseAuth auth;
     private userService userServices = new userServiceImpl();
     @Override

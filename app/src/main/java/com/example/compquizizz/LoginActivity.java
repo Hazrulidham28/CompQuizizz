@@ -41,8 +41,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 mAuth = FirebaseAuth.getInstance();
 
-
-                //probability error becasue not put the this argument
                 mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
