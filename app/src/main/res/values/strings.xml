@@ -80,6 +80,7 @@
     <string name="history">History</string>
     <string name="logouttemp">Logout</string>
     <string name="emailLogin">Email</string>
+    <string name="total_score">Total Score</string>
 
     <!-- spinner array country and age -->
     <string-array name="labels_country">

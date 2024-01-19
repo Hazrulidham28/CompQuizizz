@@ -74,11 +74,11 @@
                         android:id="@+id/textView12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
                         android:gravity="center"
-                        android:text="@string/your_highest_score"
+                        android:text="@string/total_score"
                         android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_marginTop="15dp"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textView13"
@@ -126,7 +126,6 @@
                 android:id="@+id/logoutTemp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="36dp"
                 android:text="@string/logouttemp" />
         </LinearLayout>
 

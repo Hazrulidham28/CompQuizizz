@@ -191,7 +191,7 @@ public class QuizActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(QuizActivity.this, HomeActivity.class);
                     startActivity(intent);
-                    Toast.makeText(QuizActivity.this, "Succesfull add", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(QuizActivity.this, "Succesfull add", Toast.LENGTH_SHORT).show();
                     updatescore(score,uname);
                 }
                 else {
@@ -237,7 +237,7 @@ public class QuizActivity extends AppCompatActivity {
         reference.child("totScore").setValue(tscore).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(QuizActivity.this, "Succesfull update score", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(QuizActivity.this, "Succesfull update score", Toast.LENGTH_SHORT).show();
             }
         });
     }

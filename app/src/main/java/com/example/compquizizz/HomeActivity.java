@@ -115,7 +115,7 @@ public class HomeActivity extends AppCompatActivity {
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, QuizActivity.class);
+                Intent intent = new Intent(HomeActivity.this, ChapterActivity.class);
                 String chapter = "Chap 1";
                 intent.putExtra("ChaptNum",chapter);
                 startActivity(intent);
@@ -124,7 +124,7 @@ public class HomeActivity extends AppCompatActivity {
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, QuizActivity.class);
+                Intent intent = new Intent(HomeActivity.this, ChapterActivity.class);
                 String chapter = "Chap 2";
                 intent.putExtra("ChaptNum",chapter);
                 startActivity(intent);
@@ -133,7 +133,7 @@ public class HomeActivity extends AppCompatActivity {
         c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, QuizActivity.class);
+                Intent intent = new Intent(HomeActivity.this, ChapterActivity.class);
                 String chapter = "Chap 3";
                 intent.putExtra("ChaptNum",chapter);
                 startActivity(intent);
