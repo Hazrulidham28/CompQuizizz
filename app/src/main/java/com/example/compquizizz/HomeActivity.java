@@ -1,17 +1,21 @@
 package com.example.compquizizz;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.compquizizz.Model.history;
 import com.example.compquizizz.Model.user;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -52,6 +56,8 @@ public class HomeActivity extends AppCompatActivity {
         c1=findViewById(R.id.button5);
         c2=findViewById(R.id.button6);
         c3=findViewById(R.id.button7);
+        c2.setEnabled(false);
+        c3.setEnabled(false);
 
 
 
@@ -78,6 +84,7 @@ public class HomeActivity extends AppCompatActivity {
 
                         }setDisplayname(userName);
                         findLeaderboard();
+                        chckscore();
                     }
 
                     @Override
@@ -122,15 +129,18 @@ public class HomeActivity extends AppCompatActivity {
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(HomeActivity.this, ChapterActivity.class);
                 String chapter = "Chap 1";
                 intent.putExtra("ChaptNum",chapter);
                 startActivity(intent);
+
             }
         });
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(HomeActivity.this, ChapterActivity.class);
                 String chapter = "Chap 2";
                 intent.putExtra("ChaptNum",chapter);
@@ -217,4 +227,117 @@ public class HomeActivity extends AppCompatActivity {
         us2.setText(user2.getUserName());
         us3.setText(user3.getUserName());
     }
+
+    public void chckscore(){
+
+
+
+        ArrayList <history> history1 = new ArrayList<history>();
+        ArrayList <history> history2 = new ArrayList<history>();
+        ArrayList <history> history3 = new ArrayList<history>();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        String current = currentUser.getDisplayName();
+
+        DatabaseReference historyRef = FirebaseDatabase.getInstance().getReference().child("history");
+        historyRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.d("Check value", "Snapshot: " + snapshot.getValue());
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+
+                    history histories = dataSnapshot.getValue(history.class);
+                    if (histories !=null){
+                        if (histories.getUserName().equalsIgnoreCase(current) && histories.getChaptID().equalsIgnoreCase("Chap 1")){
+                            history1.add(histories);
+                    } else if (histories.getUserName().equalsIgnoreCase(current) && histories.getChaptID().equalsIgnoreCase("Chap 2")) {
+                            history2.add(histories);
+                        }
+
+                    }
+                }validateScore(history1,history2);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+    }
+    public void validateScore(List hist1,List hist2){
+        int [] maxscoreChapter= new int[3];// 0 for chapt 1, 1 for 2 ...
+        ArrayList <history> history1 = new ArrayList<history>();
+        ArrayList <history> history2 = new ArrayList<history>();
+
+
+
+
+
+        //find max for each chapter
+        int maxScore1=0,maxScore2=0;
+        //chapter 1
+
+        for (int i = 0;i<hist1.size();i++){
+
+            history history = (history)hist1.get(i);
+
+            if (history.getScore()>maxScore1){
+                maxScore1=history.getScore();
+
+            }
+        }
+        for (int i = 0;i<hist2.size();i++){
+
+            history history = (history)hist2.get(i);
+
+            if (history.getScore()>maxScore2){
+                maxScore2=history.getScore();
+
+            }
+        }
+
+
+        Button chp1;
+        Button chp2;
+        Button chp3;
+
+        chp1 = findViewById(R.id.button5);
+        chp2 = findViewById(R.id.button6);
+        chp3 = findViewById(R.id.button7);
+
+        //chapter 2
+
+        if (maxScore1>=90){
+            chp2.setEnabled(true);
+        }
+
+        if (maxScore2>=80){
+            chp3.setEnabled(true);
+        }
+
+    }
+
+
+
+    public void showDisabledButtonDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Locked");
+            builder.setMessage("You neeed to pass the previous chapter!");
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Handle the OK button click event
+                dialog.dismiss(); // Close the dialog
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
 }

@@ -7,9 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,7 +72,9 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot questionSnapshot:snapshot.getChildren()){
+
                     question questions = questionSnapshot.getValue(question.class);
+                    Log.d("check database", "Question ID: " + questions.getCorrect_answer());
                         //add dalam qlist yang matchin chp id
                        if (questions.getChapter_id().equalsIgnoreCase(chp)) {
                            questionList.add(questions);
@@ -102,37 +106,54 @@ public class QuizActivity extends AppCompatActivity {
             RadioButton ans3 = findViewById(R.id.answer3);
             Button nextbut = findViewById(R.id.next_question);
 
+
+            String correctansw = currentQuest.getCorrect_answer();
+
             //set view
+            ans1.setChecked(false);
+            ans2.setChecked(false);
+            ans3.setChecked(false);
             question.setText(currentQuest.getQuestion());
             progNum.setText(String.valueOf(currentquestionindex+1));
             ans1.setText(currentQuest.getChoice1());
             ans2.setText(currentQuest.getChoice2());
             ans3.setText(currentQuest.getChoice3());
-            ans1.setChecked(false);
-            ans2.setChecked(false);
-            ans3.setChecked(false);
+            //Log.d("this is correct answer",correctansw);
+
             nextbut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (ans1.isChecked()){
-                        //check if selected equal to answer
-                        if (ans1.getText().equals(currentQuest.getCorrect_answ())){
-                            //calculate put score
-                            score[currentquestionindex]=20;
-                        }else{
 
+                    if (ans1.isChecked()) {
+                        if ((ans1.getText().toString()).equals(correctansw)) {
+                            // Correct answer
+                            score[currentquestionindex] = 20;
+                        } else {
+                            // Incorrect answer
+                            score[currentquestionindex] = 0; // You might want to award 0 points for incorrect answers
                         }
-
                         nextQuestion();
                     } else if (ans2.isChecked()) {
-                        score[currentquestionindex]=20;
+                        if ((ans2.getText().toString()).equals(correctansw)) {
+                            // Correct answer
+                            score[currentquestionindex] = 20;
+                        } else {
+                            // Incorrect answer
+                            score[currentquestionindex] = 0;
+                        }
                         nextQuestion();
                     } else if (ans3.isChecked()) {
-                        score[currentquestionindex]=20;
+                        if ((ans3.getText().toString()).equals(correctansw)) {
+                            // Correct answer
+                            score[currentquestionindex] = 20;
+                        } else {
+                            // Incorrect answer
+                            score[currentquestionindex] = 0;
+                        }
+                        //Toast.makeText(QuizActivity.this, String.valueOf(score[currentquestionindex]), Toast.LENGTH_SHORT).show();
                         nextQuestion();
-
-                    }else{
-                        Toast.makeText(QuizActivity.this, "Select you answer", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(QuizActivity.this, "Select your answer", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -143,15 +164,18 @@ public class QuizActivity extends AppCompatActivity {
             //handle when all question is displayed
             //calculate total score
             int totalallq=0;
-            for (int i=0;i<score.length;i++){
+
+            for (int i=0;i<5;i++){
+
                 totalallq=totalallq+score[i];
+                //Log.d("total"+i,"sum"+totalallq);
             }
 
             Toast.makeText(QuizActivity.this,String.valueOf(totalallq), Toast.LENGTH_SHORT).show();
             FirebaseUser currentUser = mAuth.getCurrentUser();
 
             String username = currentUser.getDisplayName();
-            //Toast.makeText(QuizActivity.this,username, Toast.LENGTH_SHORT).show();
+
             //do something to store history
             storeHistory(totalallq,currentquestionindex,username,chaptID);
         }

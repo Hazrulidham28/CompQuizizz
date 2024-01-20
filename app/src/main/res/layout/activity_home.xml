@@ -157,7 +157,9 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="34dp"
                 android:layout_marginRight="30dp"
-                android:text="@string/chapter_2_button" />
+                android:text="@string/chapter_2_button"
+
+                />
 
             <Button
                 android:id="@+id/button7"
@@ -166,7 +168,8 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="34dp"
                 android:layout_marginRight="30dp"
-                android:text="@string/chapter_3_button" />
+                android:text="@string/chapter_3_button"
+                />
 
             <Button
                 android:id="@+id/logoutTemp"

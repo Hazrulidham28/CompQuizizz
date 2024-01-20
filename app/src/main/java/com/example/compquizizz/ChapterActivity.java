@@ -85,9 +85,6 @@ public class ChapterActivity extends AppCompatActivity {
                             int passing = snapshot.child("passing_score").getValue(int.class);
                             String chpName = snapshot.child("chapter_name").getValue(String.class);
 
-                            Log.d("ChapterData", "Description: " + description);
-                            Log.d("ChapterData", "Passing Score: " + passing);
-                            Log.d("ChapterData", "Chapter Name: " + chpName);
 
                             TextView desc = findViewById(R.id.description);
                             TextView passingscr = findViewById(R.id.passing_score);
@@ -131,7 +128,6 @@ public class ChapterActivity extends AppCompatActivity {
                         history histories = dataSnapshot.getValue(history.class);
                         if (histories !=null){
                             if (histories.getUserName().equalsIgnoreCase(current) && histories.getChaptID().equalsIgnoreCase(chpat)){
-
                                 history.add(histories);
                             }
                         }

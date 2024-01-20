@@ -1,7 +1,7 @@
 package com.example.compquizizz.Model;
 
 public class question {
-    String  chapter_id, question,choice1,choice2,choice3, correct_answ;
+    String  chapter_id, question,choice1,choice2,choice3, correct_answer;
     int question_id;
     public question(int questionid, String chapterid, String question, String choice1, String choice2, String choice3, String correct_answ) {
         question_id = questionid;
@@ -10,7 +10,7 @@ public class question {
         this.choice1 = choice1;
         this.choice2 = choice2;
         this.choice3 = choice3;
-        this.correct_answ = correct_answ;
+        this.correct_answer = correct_answ;
     }
     public question(){}
 
@@ -62,11 +62,11 @@ public class question {
         this.choice3 = choice3;
     }
 
-    public String getCorrect_answ() {
-        return correct_answ;
+    public String getCorrect_answer() {
+        return correct_answer;
     }
 
-    public void setCorrect_answ(String correct_answ) {
-        this.correct_answ = correct_answ;
+    public void setCorrect_answer(String correct_answ) {
+        this.correct_answer = correct_answ;
     }
 }
