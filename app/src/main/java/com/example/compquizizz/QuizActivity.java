@@ -1,8 +1,10 @@
 package com.example.compquizizz;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -160,7 +162,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void storeHistory(int totalsc,int index,String username,String chaptid){
-
+        boolean pass=false;
         String chaptername,date,historyid;
         String done = String.valueOf(index);
         Date currentDate = new Date();
@@ -170,11 +172,23 @@ public class QuizActivity extends AppCompatActivity {
 
         if (chaptid.equalsIgnoreCase("Chap 1")){
             chaptername = "Chapter 1";
+
+            if (totalsc >= 90){
+                pass=true;
+            }
+
         } else if (chaptid.equalsIgnoreCase("Chap 2")) {
             chaptername = "Chapter 2";
+            if (totalsc >= 80){
+                pass=true;
+            }
         }else {
             chaptername = "Chapter 3";
+            if (totalsc >= 80){
+                pass=true;
+            }
         }
+        popupresult(pass);
         history nhistory = new history(historyid,username,chaptid,done,date,chaptername,totalsc);
 
         //Toast.makeText(QuizActivity.this,nhistory.getHistoryID(), Toast.LENGTH_SHORT).show();
@@ -190,8 +204,6 @@ public class QuizActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
 
-                    Intent intent = new Intent(QuizActivity.this, HomeActivity.class);
-                    startActivity(intent);
                     //Toast.makeText(QuizActivity.this, "Succesfull add", Toast.LENGTH_SHORT).show();
                     updatescore(score,uname);
                 }
@@ -242,4 +254,29 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
     }
+    private void popupresult(boolean pass) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if (pass==true){
+            builder.setTitle("Congratulations !");
+            builder.setMessage("You have passed!");
+        }else{
+            builder.setTitle("Try again next time !");
+            builder.setMessage("Don't give up!");
+        }
+
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Handle the OK button click event
+                dialog.dismiss(); // Close the dialog
+                Intent intent = new Intent(QuizActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
 }
