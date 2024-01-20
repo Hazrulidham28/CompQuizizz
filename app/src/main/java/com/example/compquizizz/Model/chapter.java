@@ -2,45 +2,45 @@ package com.example.compquizizz.Model;
 
 public class chapter {
 
-    String ChaptID,ChapterName,ChapterDescription;
-    int PassingScore;
+    String chapter_id,chapter_name,chapter_description;
+    int passing_score;
 
     public chapter(String chaptID, String chapterName, String chapterDescription, int passingScore) {
-        ChaptID = chaptID;
-        ChapterName = chapterName;
-        ChapterDescription = chapterDescription;
-        PassingScore = passingScore;
+        this.chapter_id = chaptID;
+        this.chapter_name = chapterName;
+        this.chapter_description = chapterDescription;
+        this.passing_score = passingScore;
     }
-
+    public chapter(){}
     public String getChaptID() {
-        return ChaptID;
+        return chapter_id;
     }
 
     public void setChaptID(String chaptID) {
-        ChaptID = chaptID;
+        chapter_id = chaptID;
     }
 
     public String getChapterName() {
-        return ChapterName;
+        return chapter_name;
     }
 
     public void setChapterName(String chapterName) {
-        ChapterName = chapterName;
+        chapter_name = chapterName;
     }
 
     public String getChapterDescription() {
-        return ChapterDescription;
+        return chapter_description;
     }
 
     public void setChapterDescription(String chapterDescription) {
-        ChapterDescription = chapterDescription;
+        chapter_description = chapterDescription;
     }
 
     public int getPassingScore() {
-        return PassingScore;
+        return passing_score;
     }
 
     public void setPassingScore(int passingScore) {
-        PassingScore = passingScore;
+        passing_score = passingScore;
     }
 }

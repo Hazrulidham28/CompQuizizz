@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,7 +38,8 @@ public class ProfileActivity extends AppCompatActivity {
             userRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    Log.d("profileData", "Snapshot: " + snapshot.getValue());
+                    //remove for
                         user users = snapshot.getValue(user.class);
                         if (users!=null){
                             String userName = users.getUserName();
@@ -56,7 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
                             fullname.setText(fullnm);
                             //addmoremethod
                         }
-                    }
+
                 }
 
                 @Override

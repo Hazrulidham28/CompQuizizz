@@ -61,7 +61,7 @@ public class QuizActivity extends AppCompatActivity {
         }}
     }
     public void getQuestion(String chp){
-
+        //ambil semua data dalam table question
         DatabaseReference questRef = database.child("question");
 
         questRef.addValueEventListener(new ValueEventListener() {
@@ -69,6 +69,7 @@ public class QuizActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot questionSnapshot:snapshot.getChildren()){
                     question questions = questionSnapshot.getValue(question.class);
+                        //add dalam qlist yang matchin chp id
                        if (questions.getChapter_id().equalsIgnoreCase(chp)) {
                            questionList.add(questions);
                        }
