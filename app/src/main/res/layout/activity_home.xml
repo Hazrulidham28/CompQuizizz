@@ -77,16 +77,16 @@
                                 android:layout_marginTop="20dp"
                                 android:text="Loading"
                                 android:textColor="@color/white"
-                                android:gravity="center"/>
+                                android:layout_marginLeft="40dp"/>
 
                             <TextView
                                 android:id="@+id/topscore2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
                                 android:text="Loading"
                                 android:layout_marginTop="15dp"
                                 android:textColor="@color/white"
+                                android:layout_marginLeft="40dp"
 
                                 />
 
@@ -94,7 +94,7 @@
                                 android:id="@+id/topscore3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:layout_marginLeft="40dp"
                                 android:text="Loading"
                                 android:textColor="@color/white"
                                 android:layout_marginTop="15dp"/>
@@ -119,10 +119,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:gravity="center"
-                        android:text="@string/total_score"
+                        android:text="@string/your_score"
                         android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="20dp"/>
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textView13"

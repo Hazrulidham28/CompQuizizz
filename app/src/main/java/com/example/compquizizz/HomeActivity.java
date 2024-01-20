@@ -223,9 +223,9 @@ public class HomeActivity extends AppCompatActivity {
         TextView us2 = findViewById(R.id.topscore2);
         TextView us3 = findViewById(R.id.topscore3);
 
-        us1.setText(user1.getUserName());
-        us2.setText(user2.getUserName());
-        us3.setText(user3.getUserName());
+        us1.setText("1. "+user1.getUserName());
+        us2.setText("2. "+user2.getUserName());
+        us3.setText("3. "+user3.getUserName());
     }
 
     public void chckscore(){
