@@ -154,7 +154,8 @@
                     android:id="@+id/spinnerCountry"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:minHeight="48dp"/>
+                    android:minHeight="48dp"
+                    android:entries="@array/countries_array"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Age Spinner -->
@@ -168,6 +169,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:minHeight="48dp"
+
                     />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>

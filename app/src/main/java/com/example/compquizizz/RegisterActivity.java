@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -27,6 +30,7 @@ import java.util.Arrays;
 
 public class RegisterActivity extends AppCompatActivity {
     String country,age,uID;
+    String selectedcountry;int selectedage;
     int ageValues,totscore=0;
     String responseCode="FAILED";
 
@@ -52,13 +56,38 @@ public class RegisterActivity extends AppCompatActivity {
         regButton=findViewById(R.id.buttonRegister);
 
         //call spinner adapter class
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.countries_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        countrySpinner.setAdapter(adapter);
 
-
-
-
+        ArrayAdapter<CharSequence> adapterrs = ArrayAdapter.createFromResource(this, R.array.ages_array, android.R.layout.simple_spinner_item);
+        adapterrs.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ageSpinner.setAdapter(adapterrs);
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        selectedage = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+                countrySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        selectedcountry=adapterView.getItemAtPosition(i).toString();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
                 //get the value from xml file
                 fName = findViewById(R.id.editTextFirstName);
                 lName = findViewById(R.id.editTextLastName);
@@ -77,12 +106,19 @@ public class RegisterActivity extends AppCompatActivity {
 
                 // need to set up the spinner
                 //this is just dummy data! need to be changed
-                ageValues=20;
-                country="Malaysia";
-
+                ages = selectedage;
+                country=selectedcountry;
+                Log.d("view country",""+ages);
                 //need to add text field checker to ensure no null value inserted
                 user thisUser = new user(fNames,eMails,Passs,country,lNames,ageValues,Unames,uID,totscore);
 
+                //temporary
+                if (ages==0){
+                    ages=10;
+                }
+                if (country.isEmpty()){
+                    country="MALAYSIA";
+                }
 
                 //initialize firebase database and refer to specific part for reference
                 db = FirebaseDatabase.getInstance();
