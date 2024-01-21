@@ -28,7 +28,7 @@
     <string name="start_btn">START !!</string>
 
     <!-- History page -->
-    <string name="compquizziz">CompQuizziz</string>
+    <string name="history_page">HISTORY</string>
     <string name="username_history">Username</string>
     <string name="log_in">Log In</string>
     <string name="Register">Register</string>
@@ -96,6 +96,7 @@
     <string name="last_nameupdate">Last Name</string>
     <string name="countryupdate">Country</string>
     <string name="ageupdate">Age</string>
+    <string name="compquizziz">CompQuizizz</string>
 
     <!-- spinner array country and age -->
     <string-array name="labels_country">
