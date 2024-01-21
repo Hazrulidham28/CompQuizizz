@@ -91,6 +91,7 @@
     <string name="address_update_text">Address</string>
     <string name="address_hint">123, Taman Unirest, 05400, Tapah</string>
     <string name="update_text">Update</string>
+    <string name="back_button">Back</string>
 
     <!-- spinner array country and age -->
     <string-array name="labels_country">
