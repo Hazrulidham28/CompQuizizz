@@ -14,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import com.example.compquizizz.Model.history;
 import com.example.compquizizz.Model.question;
@@ -44,6 +45,7 @@ public class QuizActivity extends AppCompatActivity {
     DatabaseReference reference;
     FirebaseDatabase db=FirebaseDatabase.getInstance();
     FirebaseAuth auth;
+    ProgressBar progressBar;
 
 
 
@@ -51,6 +53,7 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        progressBar = (ProgressBar)findViewById(R.id.quiz_progress);
         Intent intent = getIntent();
         if (intent!=null){
             String chapternum = intent.getStringExtra("ChaptNum");
@@ -63,6 +66,8 @@ public class QuizActivity extends AppCompatActivity {
         getQuestion(chapternum);
 
         }}
+
+
     }
     public void getQuestion(String chp){
         //ambil semua data dalam table question
@@ -133,6 +138,7 @@ public class QuizActivity extends AppCompatActivity {
                             score[currentquestionindex] = 0; // You might want to award 0 points for incorrect answers
                         }
                         nextQuestion();
+
                     } else if (ans2.isChecked()) {
                         if ((ans2.getText().toString()).equals(correctansw)) {
                             // Correct answer
@@ -142,6 +148,7 @@ public class QuizActivity extends AppCompatActivity {
                             score[currentquestionindex] = 0;
                         }
                         nextQuestion();
+
                     } else if (ans3.isChecked()) {
                         if ((ans3.getText().toString()).equals(correctansw)) {
                             // Correct answer
@@ -152,6 +159,7 @@ public class QuizActivity extends AppCompatActivity {
                         }
                         //Toast.makeText(QuizActivity.this, String.valueOf(score[currentquestionindex]), Toast.LENGTH_SHORT).show();
                         nextQuestion();
+
                     } else {
                         Toast.makeText(QuizActivity.this, "Select your answer", Toast.LENGTH_SHORT).show();
                     }
@@ -183,6 +191,10 @@ public class QuizActivity extends AppCompatActivity {
     private void nextQuestion(){
         currentquestionindex++;
         displayQuestion();
+        int currentProgress = progressBar.getProgress();
+        int newProgress = currentProgress + 20;
+        progressBar.setProgress(newProgress);
+
     }
 
     public void storeHistory(int totalsc,int index,String username,String chaptid){

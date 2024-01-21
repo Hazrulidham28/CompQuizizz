@@ -62,8 +62,6 @@
     <string name="title_quiz">Title Quiz</string>
     <string name="progress_num">Question:</string>
     <string name="current_progress">1</string>
-    <string name="scoreTextView">Your Score:</string>
-    <string name="current_score">100</string>
     <string name="question">Question is here</string>
     <string name="answer_1">Answer 1</string>
     <string name="answer_2">Answer 2</string>
