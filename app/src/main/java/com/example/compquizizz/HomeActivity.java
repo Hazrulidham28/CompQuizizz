@@ -99,7 +99,10 @@ public class HomeActivity extends AppCompatActivity {
 
 
         BottomNavigationView btnviw = findViewById(R.id.bottomNavigationView);
+
         String uID = currentUser.getUid();
+
+        btnviw.setSelectedItemId(R.id.invisible);
         btnviw.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -108,17 +111,20 @@ public class HomeActivity extends AppCompatActivity {
                     Intent intent = new Intent(HomeActivity.this,HistoryActivity.class);
                     startActivity(intent);
                     intent.putExtra("uID",uID);
+
                     return true;
                 }
                 else if (menuItem ==  R.id.profile) {
                     Intent intent = new Intent(HomeActivity.this,ProfileActivity.class);
                     startActivity(intent);
                     intent.putExtra("uID",uID);
+
                     return true;
-                }else if(menuItem ==  R.id.home){
-                    Intent intent = new Intent(HomeActivity.this,HomeActivity.class);
+                }else if(menuItem ==  R.id.home) {
+                    Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
                     startActivity(intent);
-                    intent.putExtra("uID",uID);
+                    intent.putExtra("uID", uID);
+
                     return true;
                 }
                 return false;

@@ -90,6 +90,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         BottomNavigationView btnviw = findViewById(R.id.bottomNavigationView);
         String uID = currentUser.getUid();
+        btnviw.setSelectedItemId(R.id.invisible);
         btnviw.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

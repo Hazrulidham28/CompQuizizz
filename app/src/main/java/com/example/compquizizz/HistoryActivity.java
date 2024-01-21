@@ -64,7 +64,7 @@ public class HistoryActivity extends AppCompatActivity {
         }
 
         BottomNavigationView btnviw = findViewById(R.id.bottomNavigationView);
-
+        btnviw.setSelectedItemId(R.id.invisible);
         btnviw.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
