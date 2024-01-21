@@ -60,7 +60,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="373dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="68dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
@@ -76,16 +76,16 @@
             android:layout_marginTop="10dp"
 
             android:text="@string/emailLogin"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/email_input"
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:layout_margin="10dp"
+            android:background="@drawable/round_back_dark_blue"
             android:ems="10"
             android:inputType="text"
-            android:background="@drawable/round_back_dark_blue"
 
 
             />
@@ -98,16 +98,16 @@
             android:layout_marginTop="10dp"
 
             android:text="@string/password_login"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/password_input"
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:layout_margin="10dp"
+            android:background="@drawable/round_back_dark_blue"
             android:ems="10"
             android:inputType="textPassword"
-            android:background="@drawable/round_back_dark_blue"
 
 
             />
@@ -120,7 +120,7 @@
         android:layout_marginTop="24dp"
 
         android:text="@string/not_have_an_account"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.391"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,7 +133,7 @@
         android:layout_marginStart="8dp"
 
         android:text="@string/Register"
-        android:textSize="12sp"
+        android:textSize="13sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/register_text"
         app:layout_constraintTop_toTopOf="@+id/register_text" />
@@ -141,7 +141,8 @@
     <Button
         android:id="@+id/login_page_button"
         android:layout_width="200dp"
-        android:layout_height="38dp"
+        android:layout_height="42dp"
+        android:textSize="16sp"
         android:layout_marginTop="100dp"
         android:text="@string/log_in"
         app:layout_constraintEnd_toEndOf="parent"
