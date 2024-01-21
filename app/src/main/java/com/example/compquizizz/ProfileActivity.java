@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -30,6 +32,17 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+            Button logout = findViewById(R.id.logoutbtn);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(ProfileActivity.this,StartupActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser!=null){
             String userId = currentUser.getUid();
@@ -47,15 +60,18 @@ public class ProfileActivity extends AppCompatActivity {
                             String fname = users.getFirstName();
                             String lname = users.getLastName();
                             String fullnm = fname+" "+lname;
+                            String address = users.getCountry();
 
                             EditText fullname = findViewById(R.id.fullname);
                             TextView uname = findViewById(R.id.username);
                             EditText pass = findViewById(R.id.password);
                             EditText email = findViewById(R.id.EmailAddress);
+                            EditText location = findViewById(R.id.PostalAddress);
                             uname.setText(users.getUserName());
                             pass.setText(users.getPassword());
                             email.setText(users.getEmail());
                             fullname.setText(fullnm);
+                            location.setText(address);
                             //addmoremethod
                         }
 

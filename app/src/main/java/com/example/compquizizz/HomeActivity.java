@@ -37,7 +37,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
-    Button logout;
+
     Button c1;
     Button c2;
     Button c3;
@@ -52,7 +52,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        logout=findViewById(R.id.logoutTemp);
         c1=findViewById(R.id.button5);
         c2=findViewById(R.id.button6);
         c3=findViewById(R.id.button7);
@@ -154,15 +153,6 @@ public class HomeActivity extends AppCompatActivity {
                 String chapter = "Chap 3";
                 intent.putExtra("ChaptNum",chapter);
                 startActivity(intent);
-            }
-        });
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(HomeActivity.this,StartupActivity.class);
-                startActivity(intent);
-
             }
         });
 

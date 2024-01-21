@@ -17,6 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/Deleteac"
+        android:layout_width="100dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:text="Delete Account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailAddress" />
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="70dp"
@@ -110,30 +120,18 @@
         app:layout_constraintTop_toBottomOf="@+id/detailTextView" />
 
     <EditText
-        android:id="@+id/PhoneNum"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="3dp"
-        android:paddingLeft="50dp"
-        android:background="@drawable/rounded_corner_white"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PostalAddress" />
-
-    <EditText
         android:id="@+id/EmailAddress"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginTop="3dp"
-        android:paddingLeft="50dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/rounded_corner_white"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:paddingLeft="50dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PhoneNum" />
+        app:layout_constraintTop_toBottomOf="@+id/PostalAddress" />
 
     <ImageView
         android:id="@+id/map_icon"
@@ -146,16 +144,6 @@
         app:srcCompat="@drawable/map_address_icon" />
 
     <ImageView
-        android:id="@+id/phone_icon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/PhoneNum"
-        app:layout_constraintStart_toStartOf="@+id/PhoneNum"
-        app:layout_constraintTop_toTopOf="@+id/PhoneNum"
-        app:srcCompat="@drawable/phone_num_icom" />
-
-    <ImageView
         android:id="@+id/email_icon"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -165,20 +153,6 @@
         app:layout_constraintTop_toTopOf="@+id/EmailAddress"
         app:srcCompat="@drawable/email_address_icon" />
 
-    <TextView
-        android:id="@+id/achievementTextView"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:gravity="center"
-        android:text="@string/achievementTextView"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EmailAddress" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
@@ -187,5 +161,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"/>
+
+    <Button
+        android:id="@+id/updateAc"
+        android:layout_width="100dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Update"
+        app:layout_constraintEnd_toStartOf="@+id/Deleteac"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailAddress" />
+
+    <Button
+        android:id="@+id/logoutbtn"
+        android:layout_width="100dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="8dp"
+        android:text="Logout"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailAddress"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
