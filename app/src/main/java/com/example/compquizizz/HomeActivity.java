@@ -238,7 +238,7 @@ public class HomeActivity extends AppCompatActivity {
         historyRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d("Check value", "Snapshot: " + snapshot.getValue());
+              //  Log.d("Check value", "Snapshot: " + snapshot.getValue());
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
 
                     history histories = dataSnapshot.getValue(history.class);
