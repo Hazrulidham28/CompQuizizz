@@ -2,14 +2,12 @@
 <resources>
 
     <string-array name="countries_array">
-        <item>Country</item>
         <item>Malaysia</item>
         <item>Indonesia</item>
         <item>Singapore</item>
         <item>Thailand</item>
     </string-array>
     <string-array name="ages_array">
-        <item>Age</item>
         <item>15</item>
         <item>16</item>
         <item>17</item>

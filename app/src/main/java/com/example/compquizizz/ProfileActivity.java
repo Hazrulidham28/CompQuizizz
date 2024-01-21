@@ -27,12 +27,15 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     EditText fullname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
-            Button logout = findViewById(R.id.logoutbtn);
+        Button updateac=findViewById(R.id.updateAc);
+        Button logout = findViewById(R.id.logoutbtn);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,27 +56,27 @@ public class ProfileActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     Log.d("profileData", "Snapshot: " + snapshot.getValue());
                     //remove for
-                        user users = snapshot.getValue(user.class);
-                        if (users!=null){
-                            String userName = users.getUserName();
-                            String score = String.valueOf(users.getTotScore());
-                            String fname = users.getFirstName();
-                            String lname = users.getLastName();
-                            String fullnm = fname+" "+lname;
-                            String address = users.getCountry();
+                    user users = snapshot.getValue(user.class);
+                    if (users!=null){
+                        String userName = users.getUserName();
+                        String score = String.valueOf(users.getTotScore());
+                        String fname = users.getFirstName();
+                        String lname = users.getLastName();
+                        String fullnm = fname+" "+lname;
+                        String address = users.getCountry();
 
-                            EditText fullname = findViewById(R.id.fullname);
-                            TextView uname = findViewById(R.id.username);
-                            EditText pass = findViewById(R.id.password);
-                            EditText email = findViewById(R.id.EmailAddress);
-                            EditText location = findViewById(R.id.PostalAddress);
-                            uname.setText(users.getUserName());
-                            pass.setText(users.getPassword());
-                            email.setText(users.getEmail());
-                            fullname.setText(fullnm);
-                            location.setText(address);
-                            //addmoremethod
-                        }
+                        fullname = findViewById(R.id.fullname);
+                        TextView uname = findViewById(R.id.username);
+                        EditText pass = findViewById(R.id.password);
+                        EditText email = findViewById(R.id.EmailAddress);
+                        EditText location = findViewById(R.id.PostalAddress);
+                        uname.setText(users.getUserName());
+                        pass.setText(users.getPassword());
+                        email.setText(users.getEmail());
+                        fullname.setText(fullnm);
+                        location.setText(address);
+                        //addmoremethod
+                    }
 
                 }
 
@@ -90,7 +93,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         BottomNavigationView btnviw = findViewById(R.id.bottomNavigationView);
         String uID = currentUser.getUid();
-        btnviw.setSelectedItemId(R.id.invisible);
         btnviw.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -113,6 +115,14 @@ public class ProfileActivity extends AppCompatActivity {
                     return true;
                 }
                 return false;
+            }
+        });
+
+        updateac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this,UpdateActivity.class);
+                startActivity(intent);
             }
         });
     }

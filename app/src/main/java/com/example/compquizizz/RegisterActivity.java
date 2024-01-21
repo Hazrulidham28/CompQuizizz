@@ -66,28 +66,8 @@ public class RegisterActivity extends AppCompatActivity {
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        selectedage = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-                countrySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        selectedcountry=adapterView.getItemAtPosition(i).toString();
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
+               ageValues= Integer.parseInt(ageSpinner.getSelectedItem().toString());
+               country =countrySpinner.getSelectedItem().toString();
                 //get the value from xml file
                 fName = findViewById(R.id.editTextFirstName);
                 lName = findViewById(R.id.editTextLastName);
@@ -104,21 +84,13 @@ public class RegisterActivity extends AppCompatActivity {
                 lNames=lName.getText().toString();
                 Unames=Uname.getText().toString();
 
-                // need to set up the spinner
-                //this is just dummy data! need to be changed
-                ages = selectedage;
-                country=selectedcountry;
-                Log.d("view country",""+ages);
-                //need to add text field checker to ensure no null value inserted
+
+
+                Log.d("view country",""+ageValues);
+
                 user thisUser = new user(fNames,eMails,Passs,country,lNames,ageValues,Unames,uID,totscore);
 
-                //temporary
-                if (ages==0){
-                    ages=10;
-                }
-                if (country.isEmpty()){
-                    country="MALAYSIA";
-                }
+
 
                 //initialize firebase database and refer to specific part for reference
                 db = FirebaseDatabase.getInstance();
@@ -127,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
                 //set which class will be added as table
                 reference = db.getReference("user");
 
-                auth.createUserWithEmailAndPassword(eMails,Passs).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+               auth.createUserWithEmailAndPassword(eMails,Passs).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){

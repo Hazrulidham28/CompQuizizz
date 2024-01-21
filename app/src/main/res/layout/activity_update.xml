@@ -56,63 +56,102 @@
         app:layout_constraintTop_toBottomOf="@+id/update_title"
         app:layout_constraintVertical_bias="0.044">
 
-        <TextView
-            android:id="@+id/fullname_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/fullname_text"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/fullname_update"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/rounded_light_purple_background"
-            android:hint="@string/mamu_al_bukhari_hint"
-            android:inputType="text"
-            android:padding="10dp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/username_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/username_text"
-            android:textSize="18sp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/fnameupdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/first_nameupdate" />
 
-        <EditText
-            android:id="@+id/username_update"
+                <EditText
+                    android:id="@+id/editFname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lnamUpdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/last_nameupdate" />
+
+                <EditText
+                    android:id="@+id/editLname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/rounded_light_purple_background"
-            android:ems="10"
-            android:hint="@string/mamualbukhari_hint"
-            android:inputType="text"
-            android:padding="10dp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/PostalAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/address_update_text"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/address_update"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_light_purple_background"
-            android:hint="@string/address_hint"
-            android:inputType="textMultiLine"
-            android:padding="10dp" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/countryupdate" />
+
+                <Spinner
+                    android:id="@+id/spinnereditcountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ageupdate" />
+
+                <Spinner
+                    android:id="@+id/spinnereditage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <Button
@@ -130,7 +169,7 @@
         app:layout_constraintVertical_bias="0.069" />
 
     <Button
-        android:id="@+id/buttonDelete"
+        android:id="@+id/buttonback"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
