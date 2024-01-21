@@ -4,94 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateActivity">
+    tools:context=".UpdateActivity"
+    android:background="@color/navy"
+    android:fillViewport="true">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/title_header2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="@string/compquizziz"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar2"
-        app:layout_constraintStart_toStartOf="@+id/toolbar2"
-        app:layout_constraintTop_toTopOf="@+id/toolbar2" />
 
     <TextView
         android:id="@+id/update_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="100dp"
         android:text="@string/update_profile"
-        android:textColor="#000"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/update_title"
-        app:layout_constraintVertical_bias="0.044">
+        app:layout_constraintVertical_bias="0.218">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"
+                android:background="@drawable/rounded_corner_white"
                 android:orientation="vertical">
 
                 <TextView
+                    android:drawableLeft="@drawable/person_16dp"
+                    android:drawablePadding="5dp"
                     android:id="@+id/fnameupdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
                     android:text="@string/first_nameupdate" />
 
                 <EditText
                     android:id="@+id/editFname"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="45dp"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:paddingLeft="10dp"
+
+                   />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:layout_weight="1"
+                android:background="@drawable/rounded_corner_white"
                 android:orientation="vertical">
 
                 <TextView
+                    android:drawableLeft="@drawable/person_16dp"
                     android:id="@+id/lnamUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:drawablePadding="5dp"
                     android:text="@string/last_nameupdate" />
 
                 <EditText
@@ -99,7 +97,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:paddingLeft="10dp"/>
 
             </LinearLayout>
 
@@ -107,45 +106,65 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="55dp"
+
+            android:layout_marginTop="20dp"
+
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+
                 android:layout_weight="1"
+                android:background="@drawable/rounded_corner_white"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/countryupdate" />
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:text="@string/countryupdate"
+                    android:drawableLeft="@drawable/country_flag_svgrepo_com"
+                    android:drawablePadding="5dp"
+                    />
 
                 <Spinner
                     android:id="@+id/spinnereditcountry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
+                    android:background="@color/white" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_weight="1"
+                android:background="@drawable/rounded_corner_white"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/ageupdate" />
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:text="@string/ageupdate"
+                    android:drawableLeft="@drawable/age_icon"
+                    android:drawablePadding="5dp"/>
 
                 <Spinner
                     android:id="@+id/spinnereditage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:dropDownHeight = "150dp"
+                    android:background="@color/white"
+
                     />
 
             </LinearLayout>
@@ -163,6 +182,7 @@
         android:gravity="center"
         android:text="@string/update_text"
         android:textSize="15sp"
+        android:backgroundTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
@@ -176,12 +196,24 @@
         android:gravity="center"
         android:text="@string/back_button"
         android:textSize="15sp"
+        android:backgroundTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonUpdate"
         app:layout_constraintHorizontal_bias="0.628"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         app:layout_constraintVertical_bias="0.076" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="67dp"
+        android:layout_height="208dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.191"
+        app:srcCompat="@drawable/update_svgrepo_com" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
