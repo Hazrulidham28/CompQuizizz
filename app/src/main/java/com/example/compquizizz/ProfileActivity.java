@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.compquizizz.Model.history;
 import com.example.compquizizz.Model.user;
@@ -245,6 +246,14 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Void unused) {
                 Log.d("check logout", " Successful DELETED" );
+            }
+        });
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();;
+        user.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(getApplicationContext(), "User account deleted", Toast.LENGTH_SHORT).show();
             }
         });
         Intent intent = new Intent(ProfileActivity.this,StartupActivity.class);
