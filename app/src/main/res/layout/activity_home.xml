@@ -17,17 +17,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FFFFFF"
+            android:background="#152238"
             android:orientation="vertical"
             tools:ignore="UselessParent">
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="0dp"
                 android:gravity="center"
                 android:text="@string/home_page"
+                android:textColor="#FFFFFF"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -36,7 +37,7 @@
                 android:layout_height="197dp"
                 android:layout_marginTop="34dp"
                 android:orientation="horizontal"
-                android:background="@drawable/rounded_background_purple"
+                android:background="@drawable/rounded_corner_orange"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp">
 
@@ -66,8 +67,8 @@
                                 android:gravity="center"
                                 android:text="@string/leaderboard"
                                 android:textColor="@color/white"
-                                android:textStyle="bold"
-                                android:textSize="20dp"/>
+                                android:textSize="20dp"
+                                android:textStyle="bold" />
 
 
                             <TextView
@@ -148,6 +149,9 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="34dp"
                 android:layout_marginRight="30dp"
+                android:paddingLeft="40dp"
+                android:backgroundTint="@color/navy"
+                android:drawableLeft="@drawable/chapter1_icon"
                 android:text="@string/chapter_1_button" />
 
             <Button
@@ -156,7 +160,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="34dp"
+                android:paddingLeft="40dp"
                 android:layout_marginRight="30dp"
+                android:drawableLeft="@drawable/chapter2_icon"
+                android:backgroundTint="@color/navy"
                 android:text="@string/chapter_2_button"
 
                 />
@@ -168,6 +175,10 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="34dp"
                 android:layout_marginRight="30dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="50dp"
+                android:drawableLeft="@drawable/chapter3_icon"
+                android:backgroundTint="@color/navy"
                 android:text="@string/chapter_3_button"
                 />
 
