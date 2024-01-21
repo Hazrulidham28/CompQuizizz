@@ -50,6 +50,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="@string/ready_to_explore_something_new"
         android:textAlignment="center"
         android:textSize="32sp"
