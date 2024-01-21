@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0D174188">
@@ -12,76 +13,86 @@
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
 
+        android:backgroundTint="@color/orange"
+        android:drawableLeft="@drawable/register_icon"
+        android:paddingStart="110dp"
         android:text="@string/register_startup"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_page_button" />
-
-    <TextView
-        android:id="@+id/comquizziz_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/compquizziz_startup"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_text" />
+        app:layout_constraintTop_toBottomOf="@+id/login_page_button"
+        app:layout_constraintVertical_bias="0.076" />
 
     <TextView
         android:id="@+id/welcome_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_width="337dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="16dp"
+        android:lineSpacingExtra="2sp"
         android:text="@string/welcome_to_startup"
+        android:textAlignment="textStart"
         android:textSize="16sp"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Ready_big"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="@string/ready_to_explore_something_new"
-        android:textAlignment="center"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comquizziz_title" />
-
-    <TextView
-        android:id="@+id/description_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/learn_about_computer_science_in_a_fun_way"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ready_big" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_welcome"
+        app:layout_constraintVertical_bias="0.066" />
 
     <Button
         android:id="@+id/login_page_button"
         android:layout_width="339dp"
         android:layout_height="52dp"
-        android:layout_marginTop="112dp"
-
+        android:layout_marginTop="52dp"
+        android:backgroundTint="@color/navy"
+        android:drawableLeft="@drawable/login_icon1"
+        android:paddingStart="110dp"
         android:text="@string/log_in_startup"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description_text" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/textView_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Hi There!!"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="46dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/welcome_text"
+        app:layout_constraintStart_toEndOf="@+id/textView_welcome"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hand_wave_icon" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="277dp"
+        android:layout_height="240dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466"
+        app:srcCompat="@drawable/picture_startup" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
