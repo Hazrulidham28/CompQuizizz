@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CompQuizizz</string>
     <string name="button">Button</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="sign_up">Create an Account</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="user_name">User Name</string>
