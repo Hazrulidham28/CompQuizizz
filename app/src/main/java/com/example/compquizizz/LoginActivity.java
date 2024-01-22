@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private userService userServices = new userServiceImpl();
     String responseCode="FAILED";
     private Button loginButton;
+    public TextView gotoSign;
     EditText Email,password;
     String email,pass;
     FirebaseAuth mAuth;
@@ -30,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         loginButton = findViewById(R.id.login_page_button);
+        gotoSign = findViewById(R.id.register_textButton);
 
        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +61,14 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+       gotoSign.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+               startActivity(intent);
+           }
+       });
     }
 
 }

@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -34,6 +35,8 @@ public class RegisterActivity extends AppCompatActivity {
     int ageValues,totscore=0;
     String responseCode="FAILED";
 
+    TextView gotoLogin;
+
     private EditText fName,lName,Uname,eMail,Pass;
     private Button regButton;
 
@@ -54,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
         //get references from xml
 
         regButton=findViewById(R.id.buttonRegister);
+        gotoLogin=findViewById(R.id.textViewLogin);
 
         //call spinner adapter class
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.countries_array, android.R.layout.simple_spinner_item);
@@ -132,6 +136,13 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        gotoLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

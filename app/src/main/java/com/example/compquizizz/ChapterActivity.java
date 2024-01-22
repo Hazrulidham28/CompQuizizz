@@ -33,6 +33,7 @@ public class ChapterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     String chapternum="null";
+    String chapTitle="null";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,7 @@ public class ChapterActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(ChapterActivity.this, QuizActivity.class);
                     intent.putExtra("ChaptNum",chapternum);
+                    intent.putExtra("Chapttitle",chapTitle);
                     startActivity(intent);
                 }
 
@@ -84,7 +86,7 @@ public class ChapterActivity extends AppCompatActivity {
                             String description = snapshot.child("chapter_description").getValue(String.class);
                             int passing = snapshot.child("passing_score").getValue(int.class);
                             String chpName = snapshot.child("chapter_name").getValue(String.class);
-
+                            chapTitle = chpName;
 
                             TextView desc = findViewById(R.id.description);
                             TextView passingscr = findViewById(R.id.passing_score);

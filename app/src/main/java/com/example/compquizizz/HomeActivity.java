@@ -180,7 +180,7 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()){
-                        Toast.makeText(HomeActivity.this, "Welcome !!! " + username, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(HomeActivity.this, "Welcome !!! " + username, Toast.LENGTH_SHORT).show();
                     }
                 }
             });

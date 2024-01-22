@@ -51,6 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
+                Toast.makeText(getApplicationContext(), "Logged out!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ProfileActivity.this,StartupActivity.class);
                 startActivity(intent);
 
@@ -256,6 +257,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "User account deleted", Toast.LENGTH_SHORT).show();
             }
         });
+        Toast.makeText(getApplicationContext(), "User account deleted", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(ProfileActivity.this,StartupActivity.class);
         startActivity(intent);
     }

@@ -46,6 +46,7 @@ public class QuizActivity extends AppCompatActivity {
     FirebaseDatabase db=FirebaseDatabase.getInstance();
     FirebaseAuth auth;
     ProgressBar progressBar;
+    String chapName="null";
 
 
 
@@ -57,6 +58,8 @@ public class QuizActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent!=null){
             String chapternum = intent.getStringExtra("ChaptNum");
+            chapName = intent.getStringExtra("Chapttitle");
+
 
 
             FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -106,6 +109,7 @@ public class QuizActivity extends AppCompatActivity {
              chaptID = currentQuest.getChapter_id();
             TextView question = findViewById(R.id.question);
             TextView progNum = findViewById(R.id.current_progress);
+            TextView title = findViewById(R.id.quiz_title);
             RadioButton ans1 = findViewById(R.id.answer1);
             RadioButton ans2 = findViewById(R.id.answer2);
             RadioButton ans3 = findViewById(R.id.answer3);
@@ -123,6 +127,7 @@ public class QuizActivity extends AppCompatActivity {
             ans1.setText(currentQuest.getChoice1());
             ans2.setText(currentQuest.getChoice2());
             ans3.setText(currentQuest.getChoice3());
+            title.setText(chapName);
             //Log.d("this is correct answer",correctansw);
 
             nextbut.setOnClickListener(new View.OnClickListener() {
@@ -227,7 +232,7 @@ public class QuizActivity extends AppCompatActivity {
         popupresult(pass);
         history nhistory = new history(historyid,username,chaptid,done,date,chaptername,totalsc);
 
-        //Toast.makeText(QuizActivity.this,nhistory.getHistoryID(), Toast.LENGTH_SHORT).show();
+
         addhistory(nhistory);
     }
 
@@ -240,7 +245,7 @@ public class QuizActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
 
-                    //Toast.makeText(QuizActivity.this, "Succesfull add", Toast.LENGTH_SHORT).show();
+
                     updatescore(score,uname);
                 }
                 else {
@@ -262,7 +267,7 @@ public class QuizActivity extends AppCompatActivity {
 
                     if (users!=null){
                         int newtotscore = users.getTotScore()+nscore;
-                        Toast.makeText(QuizActivity.this, String.valueOf(newtotscore), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(QuizActivity.this, String.valueOf(newtotscore), Toast.LENGTH_SHORT).show();
                         updateTotal(newtotscore,uID);
                     }
                     else {
